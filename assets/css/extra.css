@@ -1,0 +1,117 @@
+/*
+	Drobne dodatki do oryginalnego szablonu Massively, w jego własnym stylu.
+	Wcześniejsze wersje wyglądu są w custom-cv-backup.css i custom-apple-backup.css.
+*/
+
+/* Własne tło: kolaż „Analyst” wygenerowany przez Agatę w Gemini, przyciemniony dla czytelności tekstu.
+   Wcześniejsze tło: images/bg-analytics.jpg (Luke Chesser, Unsplash).
+   Zapasowe tło z kodem SQL: images/bg-sql.jpg (podmień nazwę pliku poniżej). */
+#wrapper > .bg {
+	background-color: #0A1016;
+	background-image: url("../../images/overlay.png"),
+		linear-gradient(180deg, rgba(10, 16, 22, 0) 72%, #0A1016 100%),
+		linear-gradient(0deg, rgba(8, 12, 20, 0.55), rgba(8, 12, 20, 0.55)),
+		url("../../images/bg-collage.jpg");
+	background-size: auto, 100% 56vw, 100% 56vw, 100% auto;
+	background-position: center, top center, top center, top center;
+	background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+	background-attachment: scroll, scroll, scroll, scroll;
+}
+
+@media screen and (orientation: portrait) {
+	#wrapper > .bg { background-size: auto, 100% 100%, 100% 100%, cover; }
+}
+
+/* Świecący panel „ANALYST · LOADING…” nad imieniem w intro */
+#intro .hud {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.55rem;
+	margin: 0 0 2.25rem 0;
+	padding: 1rem 2.25rem 0.85rem 2.25rem;
+	border: 2px solid rgba(110, 231, 255, 0.85);
+	border-radius: 14px;
+	background: rgba(6, 28, 36, 0.55);
+	box-shadow: 0 0 18px rgba(110, 231, 255, 0.45), inset 0 0 18px rgba(110, 231, 255, 0.18);
+	color: #A8F3FF;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	text-transform: uppercase;
+}
+
+#intro .hud-title {
+	font-size: 2rem;
+	font-weight: 900;
+	letter-spacing: 0.14em;
+	line-height: 1;
+	text-shadow: 0 0 12px rgba(110, 231, 255, 0.8);
+}
+
+#intro .hud-bar {
+	position: relative;
+	width: 12rem;
+	height: 0.7rem;
+	border: 1.5px solid rgba(110, 231, 255, 0.85);
+	border-radius: 999px;
+	overflow: hidden;
+}
+
+#intro .hud-bar i {
+	position: absolute;
+	inset: 2px auto 2px 2px;
+	width: 12%;
+	border-radius: 999px;
+	background: linear-gradient(90deg, rgba(110, 231, 255, 0.55), #A8F3FF);
+	box-shadow: 0 0 10px rgba(110, 231, 255, 0.8);
+	animation: hud-load 2.2s ease-out 0.4s 1 forwards;
+}
+
+#intro .hud-sub {
+	font-size: 0.7rem;
+	font-weight: 900;
+	letter-spacing: 0.2em;
+	opacity: 0.9;
+}
+
+/* Pasek ładuje się raz i zostaje pełny */
+@keyframes hud-load {
+	from { width: 12%; }
+	to { width: calc(100% - 4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#intro .hud-bar i { animation: none; width: calc(100% - 4px); }
+}
+
+@media screen and (max-width: 736px) {
+	#intro .hud { padding: 0.8rem 1.5rem 0.7rem 1.5rem; }
+	#intro .hud-title { font-size: 1.5rem; }
+	#intro .hud-bar { width: 9rem; }
+}
+
+/* Etykiety narzędzi na kafelkach projektów, w stylu przycisków szablonu */
+ul.tags {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0;
+	margin: 0 0 2rem 0;
+}
+
+ul.tags li {
+	padding: 0 0.9rem;
+	box-shadow: inset 0 0 0 2px #212931;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.7rem;
+	font-weight: 900;
+	letter-spacing: 0.075em;
+	line-height: 2rem;
+	text-transform: uppercase;
+}
+
+#main > .post.featured ul.tags {
+	margin-top: -2rem;
+	margin-bottom: 3rem;
+}

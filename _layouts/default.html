@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="{{ page.summary | default: site.description | escape }}" />
+
+		<!-- Ikonka na karcie przeglądarki -->
+		<link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml" />
+		<link rel="icon" href="{{ '/images/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png" />
+		<link rel="apple-touch-icon" href="{{ '/images/apple-touch-icon.png' | relative_url }}" />
+
+		<!-- Podgląd linku na LinkedInie, w Messengerze itp. -->
+		{% assign og_image = '/images/og-card.png' %}{% if page.image %}{% unless page.image contains '.svg' %}{% assign og_image = page.image %}{% endunless %}{% endif %}
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="{{ site.title | escape }}" />
+		<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}Agata Szwed – Junior Data Analyst Portfolio{% endif %}" />
+		<meta property="og:description" content="{{ page.summary | default: site.description | escape }}" />
+		<meta property="og:url" content="{{ page.url | absolute_url }}" />
+		<meta property="og:image" content="{{ og_image | absolute_url }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+		<link rel="stylesheet" href="{{ '/assets/css/extra.css' | relative_url }}" />
+		<noscript><link rel="stylesheet" href="{{ '/assets/css/noscript.css' | relative_url }}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper"{% if page.intro %} class="fade-in"{% endif %}>
+
+{% if page.intro %}
+				<!-- Intro -->
+					<div id="intro">
+						<div class="hud" aria-hidden="true">
+							<span class="hud-title">Analyst</span>
+							<span class="hud-bar"><i></i></span>
+							<span class="hud-sub">Loading...</span>
+						</div>
+						<h1>Agata Szwed<br />
+						Portfolio</h1>
+						<p>Junior Data Analyst skilled in:<br />
+						➪ Microsoft Excel,<br />
+						➪ Power Query,<br />
+						➪ Power BI,<br />
+						➪ SQL,<br />
+						➪ Claude Code<br /><br />
+						Click on my <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub link</a> to see all of my projects.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+{% endif %}
+
+				<!-- Header -->
+					<header id="header">
+						<a href="{{ '/' | relative_url }}" class="logo">Agata Szwed</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li{% if page.intro %} class="active"{% endif %}><a href="{{ '/' | relative_url }}">Projects</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+{{ content }}
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>Lublin, Poland<br />
+								On-site, hybrid or remote</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; {{ site.time | date: "%Y" }} Agata Szwed</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
+			<script src="{{ '/assets/js/jquery.scrollex.min.js' | relative_url }}"></script>
+			<script src="{{ '/assets/js/jquery.scrolly.min.js' | relative_url }}"></script>
+			<script src="{{ '/assets/js/browser.min.js' | relative_url }}"></script>
+			<script src="{{ '/assets/js/breakpoints.min.js' | relative_url }}"></script>
+			<script src="{{ '/assets/js/util.js' | relative_url }}"></script>
+			<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,37 @@
+---
+layout: default
+intro: true
+---
+{% assign featured = site.posts | where: "featured", true | first %}
+{% unless featured %}{% assign featured = site.posts | first %}{% endunless %}
+{% if featured %}
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<span class="date">{{ featured.date | date: "%B %-d, %Y" }}</span>
+									<h2><a href="{{ featured.url | relative_url }}">{{ featured.title | escape }}</a></h2>
+									<p>{{ featured.summary | escape }}</p>
+								</header>
+								{% if featured.tools %}<ul class="tags">{% for t in featured.tools %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}								{% if featured.image %}<a href="{{ featured.url | relative_url }}" class="image main"><img src="{{ featured.image | relative_url }}" alt="{{ featured.image_alt | default: featured.title | escape }}" /></a>{% endif %}
+								<ul class="actions special">
+									<li><a href="{{ featured.url | relative_url }}" class="button large">View Project</a></li>
+								</ul>
+							</article>
+{% endif %}
+
+						<!-- Posts -->
+							<section class="posts">
+{% for post in site.posts %}{% if post.url != featured.url %}
+								<article>
+									<header>
+										<span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
+										<h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+									</header>
+									{% if post.tools %}<ul class="tags">{% for t in post.tools %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}									{% if post.image %}<a href="{{ post.url | relative_url }}" class="image fit"><img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title | escape }}" /></a>{% endif %}
+									<p>{{ post.summary | escape }}</p>
+									<ul class="actions special">
+										<li><a href="{{ post.url | relative_url }}" class="button">View Project</a></li>
+									</ul>
+								</article>
+{% endif %}{% endfor %}
+							</section>

@@ -1,0 +1,18 @@
+# Ustawienia strony. Po zmianie tego pliku strona przebuduje się sama w ok. minutę.
+title: Agata Szwed – Portfolio
+description: Junior Data Analyst portfolio. Excel, Power Query, Power BI, SQL.
+url: https://agata-data.github.io
+baseurl: ""
+
+email: agataszwed@interia.eu
+linkedin: https://www.linkedin.com/in/agata-s-a6803a30b/
+github_username: agata-data
+
+permalink: /projects/:title/
+markdown: kramdown
+
+exclude:
+  - JAK-DODAC-POST.md
+  - szablon-posta.md
+  - README.md
+  - LICENSE.txt
