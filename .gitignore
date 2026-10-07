@@ -1,6 +1,0 @@
-# Kopie zapasowe i stare wersje zostają tylko na komputerze
-_backup/
-assets/css/custom*.css
-# Pliki tymczasowe Jekylla
-_site/
-.jekyll-cache/
