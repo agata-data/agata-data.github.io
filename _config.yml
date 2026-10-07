@@ -12,7 +12,6 @@ permalink: /projects/:title/
 markdown: kramdown
 
 exclude:
-  - JAK-DODAC-POST.md
   - szablon-posta.md
   - README.md
   - LICENSE.txt
